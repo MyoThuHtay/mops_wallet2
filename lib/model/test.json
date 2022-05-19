@@ -1,0 +1,185 @@
+{
+  "id": "aircoin-2",
+  "symbol": "air",
+  "name": "AirCoin",
+  "asset_platform_id": "binance-smart-chain",
+  "platforms": {
+    "binance-smart-chain": "0xd8a2ae43fd061d24acd538e3866ffc2c05151b53"
+  },
+  "block_time_in_minutes": 0,
+
+  "categories": [
+    "Binance Smart Chain Ecosystem"
+  ],
+
+
+  "description": {
+    "en": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "de": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "es": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "fr": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "it": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "pl": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "ro": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "hu": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "nl": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "pt": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "sv": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "vi": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "tr": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "ru": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "ja": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "zh": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "zh-tw": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "ko": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "ar": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "th": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "id": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "cs": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "da": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "el": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "hi": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "no": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "sk": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "uk": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "he": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "fi": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "bg": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "hr": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "lt": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever.",
+    "sl": "The Air Coin(AIR) project was issued to mock the madness of the cryptocurrency market. After buying Air Coin, you get nothing but AIR.\r\n\r\nIt was issued on Binance Smart Chain. No private placement, no crowdfunding, complete community autonomy.\r\n\r\nToken Info\r\nName: AIR\r\nSymbol: AIR\r\nDecimal: 18\r\nTotal Supply: 10000000000000000 (16 zeros)\r\nContract Address:\r\n0xd8a2ae43fd061d24acd538e3866ffc2c05151b53\r\n\r\nInitial Liquidity\r\nAll the initial AIR-BNB LP tokens have been destroyed by sending to 0x0000000000000000000000000000000000000001.\r\nIt means that all the initial liquidity was locked forever."
+  },
+  "links": {
+    "homepage": [
+      "https://aircoin.cool",
+      "https://aircash.finance/",
+      "https://aircoin.community/"
+    ],
+    "blockchain_site": [
+      "https://bscscan.com/token/0xd8a2ae43fd061d24acd538e3866ffc2c05151b53",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "official_forum_url": [
+      "https://www.instagram.com/aircoin_dao_labs",
+      "https://www.linkedin.com/company/aircoin/",
+      "https://www.youtube.com/channel/UC-20apMTQfvwG9NB2R0sIOQ"
+    ],
+    "chat_url": [
+      "https://t.me/aircoinrealchannel",
+      "https://www.facebook.com/aircoinreal",
+      "https://discord.com/invite/4Gc6DN84uU"
+    ],
+    "announcement_url": [
+      "https://linktr.ee/aircoin",
+      ""
+    ],
+    "twitter_screen_name": "Aircoinreal",
+    "facebook_username": "",
+
+    "telegram_channel_identifier": "aircoinofficialgroup",
+
+    "repos_url": {
+      "github": [
+        "https://github.com/Aircoin-official"
+      ]
+
+    }
+  },
+  "image": {
+    "thumb": "https://assets.coingecko.com/coins/images/16878/thumb/logo200.png?1625755457",
+    "small": "https://assets.coingecko.com/coins/images/16878/small/logo200.png?1625755457",
+    "large": "https://assets.coingecko.com/coins/images/16878/large/logo200.png?1625755457"
+  },
+
+  "contract_address": "0xd8a2ae43fd061d24acd538e3866ffc2c05151b53",
+
+  "market_cap_rank": 2254,
+  "coingecko_rank": 2533,
+  "coingecko_score": 14.277,
+
+  "community_score": 10.016,
+  "liquidity_score": 11.048,
+  "public_interest_score": 0.001,
+  "market_data": {
+    "current_price": {
+      "aed": 6.03824e-7,
+      "ars": 0.00001927,
+      "aud": 2.38981e-7,
+      "bch": 7.8577e-10,
+      "bdt": 0.00001425,
+      "bhd": 6.1973e-8,
+      "bmd": 1.64395e-7,
+      "bnb": 5.86467e-10,
+      "brl": 8.40668e-7,
+      "btc": 5.575e-12,
+      "cad": 2.13923e-7,
+      "chf": 1.64145e-7,
+      "clp": 0.00014245,
+      "cny": 0.00000112,
+      "czk": 0.00000394,
+      "dkk": 0.00000117,
+      "dot": 1.8096e-8,
+      "eos": 1.24723e-7,
+      "eth": 8.1393e-11,
+      "eur": 1.57839e-7,
+      "gbp": 1.34346e-7,
+      "hkd": 0.00000129,
+      "huf": 0.00006042,
+      "idr": 0.00240298,
+      "ils": 5.66436e-7,
+      "inr": 0.00001271,
+      "jpy": 0.00002109,
+      "krw": 0.00021164,
+      "kwd": 5.0452e-8,
+      "lkr": 0.0000593,
+      "ltc": 2.484e-9,
+      "mmk": 0.00030429,
+      "mxn": 0.00000333,
+      "myr": 7.22238e-7,
+      "ngn": 0.00006828,
+      "nok": 0.00000162,
+      "nzd": 2.62675e-7,
+      "php": 0.00000861,
+      "pkr": 0.00003121,
+      "pln": 7.3644e-7,
+      "rub": 0.00001069,
+      "sar": 6.1661e-7,
+      "sek": 0.00000166,
+      "sgd": 2.29232e-7,
+      "thb": 0.0000057,
+      "try": 0.00000253,
+      "twd": 0.00000491,
+      "uah": 0.00000498,
+      "usd": 1.64395e-7,
+      "vef": 1.6461e-8,
+      "vnd": 0.00379013,
+      "xag": 7.827e-9,
+      "xau": 8.942e-11,
+      "xdr": 1.20033e-7,
+      "xlm": 0.00000134,
+      "xrp": 4.1838e-7,
+      "yfi": 1.5462e-11,
+      "zar": 0.00000264,
+      "bits": 0.00000557,
+      "link": 2.4335e-8,
+      "sats": 0.00055748
+    },
+
+
+    "price_change_percentage_24h": -0.93529,
+
+    "total_supply": 10000000000000000,
+
+    "circulating_supply": 10000000000000000,
+    "last_updated": "2022-05-12T15:23:12.488Z"
+  }
+
+}
