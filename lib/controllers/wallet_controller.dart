@@ -74,8 +74,8 @@ class WalletController extends GetxController {
       final response = await coinRepo.getCoinData(coinList[i].tokenAddress!);
       if (response.statusCode == 200) {
         _tokenList.addNonNull(CoinModel.fromJson(response.body));
-        balance2 +=
-            _balanceList[i] * _tokenList[i].marketData!.currentPrice!.usd!;
+        // balance2 +=
+        //     _balanceList[i] * _tokenList[i].marketData!.currentPrice!.usd!;
         //print(_tokenList[i].symbol);
       }
 

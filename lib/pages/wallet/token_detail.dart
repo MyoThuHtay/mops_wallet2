@@ -14,22 +14,22 @@ class TokenDetail extends StatefulWidget {
   final double amount;
   final String imageUrl;
   final String name;
-   num price = 0;
-   double changePercentage = 0;
+  final num price;
+  final double changePercentage;
   final String symbol;
   final double total;
   final String tokenAddress;
-  TokenDetail({
-    Key? key,
-    required this.amount,
-    required this.imageUrl,
-    required this.name,
-    required this.price,
-    required this.changePercentage,
-    required this.symbol,
-    required this.total,
-    required this.tokenAddress
-  }) : super(key: key);
+  const TokenDetail(
+      {Key? key,
+      required this.amount,
+      required this.imageUrl,
+      required this.name,
+      required this.price,
+      required this.changePercentage,
+      required this.symbol,
+      required this.total,
+      required this.tokenAddress})
+      : super(key: key);
 
   @override
   State<TokenDetail> createState() => _TokenDetailState();
@@ -104,10 +104,12 @@ class _TokenDetailState extends State<TokenDetail> {
                               ),
                               Text(
                                 widget.changePercentage < 0
-                                    ? widget.changePercentage.toStringAsFixed(2) +
+                                    ? widget.changePercentage
+                                            .toStringAsFixed(2) +
                                         '%'
                                     : '+' +
-                                    widget.changePercentage.toStringAsFixed(2) +
+                                        widget.changePercentage
+                                            .toStringAsFixed(2) +
                                         '%',
                                 textAlign: TextAlign.end,
                                 style: TextStyle(
@@ -126,14 +128,15 @@ class _TokenDetailState extends State<TokenDetail> {
                             imageUrl: widget.imageUrl,
                             imageBuilder: (context, imageProvider) =>
                                 CircleAvatar(
-                                  backgroundColor: AppColors.conColor,
-                                  foregroundImage: imageProvider,
-                                ),
+                              backgroundColor: AppColors.conColor,
+                              foregroundImage: imageProvider,
+                            ),
                             // placeholder: (context, url) => Container(
                             //   alignment: Alignment.center,
                             //   child: Image.asset('assets/images/banner.png'),
                             // ),
-                            errorWidget: (context ,url ,error) => Image.asset('assets/images/banner.png'),
+                            errorWidget: (context, url, error) =>
+                                Image.asset('assets/images/banner.png'),
                           ),
                         ),
                         const SizedBox(
@@ -176,7 +179,7 @@ class _TokenDetailState extends State<TokenDetail> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             TextIcon(
-                              onTap: (){},
+                                onTap: () {},
                                 icon: CupertinoIcons.arrow_up_to_line,
                                 text: 'Send',
                                 textColor: AppColors.tittleColor,
@@ -186,7 +189,7 @@ class _TokenDetailState extends State<TokenDetail> {
                               width: Dimensions.width45,
                             ),
                             TextIcon(
-                                onTap: (){},
+                                onTap: () {},
                                 icon: CupertinoIcons.arrow_down_to_line,
                                 text: 'Receive',
                                 textColor: AppColors.tittleColor,
@@ -196,7 +199,7 @@ class _TokenDetailState extends State<TokenDetail> {
                               width: Dimensions.width45,
                             ),
                             TextIcon(
-                              onTap: (){},
+                              onTap: () {},
                               icon: CupertinoIcons.doc_on_doc,
                               text: 'Copy',
                               iconColor: AppColors.iconColor0,
@@ -228,8 +231,8 @@ class _TokenDetailState extends State<TokenDetail> {
                       ),
                       title: const Text('Transfer'),
                       subtitle: const Text('From: '),
-                      trailing:
-                          Text('${widget.amount} ${widget.symbol.toUpperCase()}'),
+                      trailing: Text(
+                          '${widget.amount} ${widget.symbol.toUpperCase()}'),
                     ),
                     // const Divider(
                     //   thickness: .5,

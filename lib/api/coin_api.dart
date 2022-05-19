@@ -2,8 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:mops_wallet/utils/constants/constants.dart';
 
-
-class CoinApi extends GetConnect implements GetxService{
+class CoinApi extends GetConnect implements GetxService {
   late String token;
   final String appBaseUrl;
   late Map<String, String> _mainHeaders;
@@ -16,18 +15,15 @@ class CoinApi extends GetConnect implements GetxService{
     };
   }
 
-
   Future<Response> getCoinData(String uri) async {
     try {
-      Response response = await get(uri,headers: _mainHeaders);
-      if (kDebugMode) {
-        print('CoinApi get Called '+response.statusCode.toString());
-      }
+      Response response = await get(uri, headers: _mainHeaders);
+      // if (kDebugMode) {
+      //   print('CoinApi get Called '+response.statusCode.toString());
+      // }
       return response;
-
     } catch (e) {
       return Response(statusCode: 1, statusText: e.toString());
     }
   }
-
 }

@@ -1,4 +1,9 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mops_wallet/controllers/exchange_controller.dart';
+import 'package:mops_wallet/pages/dapp/dapp_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Dapp extends StatefulWidget {
@@ -12,7 +17,7 @@ class _DappState extends State<Dapp> {
   final myController = TextEditingController();
   String data = '';
   //String web = '';
-
+//'https://assets.coingecko.com/markets/images/687/small/pancakeswap.jpeg?1626060212'
   // showAlert(BuildContext context) {
   //   showDialog(
   //     context: context,
@@ -108,787 +113,735 @@ class _DappState extends State<Dapp> {
         ),
       ),
       backgroundColor: Theme.of(context).primaryColor,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / .5,
-                        // height: MediaQuery.of(context).size.height / 30,
-                        child: const Text(
-                          'Dapps',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+      body: GetBuilder<ExchangeController>(
+        builder: (controller) => SingleChildScrollView(
+          child: Column(
+            children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / .5,
+                          // height: MediaQuery.of(context).size.height / 30,
+                          child: const Text(
+                            'Dapps',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 350,
-                        child: Column(
-                          children: [
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/687/small/pancakeswap.jpeg?1626060212'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('PancakeSwap (v2)'),
-                                subtitle: const Text(
-                                    'The flippening is coming.Stack \$CAKE on Binance Smart Chain.'),
-                                onTap: () async {
-                                  const url = 'https://pancakeswap.finance';
-                                  if (await canLaunchUrl(Uri.parse(url))) {
-                                    await launchUrl(
-                                    Uri.parse(url),
-                                      // forceSafariVC: true,
-                                      // forceWebView: true,
-                                      // headers: <String, String>{
-                                      //   'my_header_key': 'my_header_value'
-
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
-                              ),
-                            ),
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/720/small/sushiswap-polygon-matic.png?1634201163'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('SushiSwap'),
-                                subtitle: const Text(
-                                    'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
-                                onTap: () async {
-                                  const url = 'https://app.sushi.com/swap';
-                                  if (await canLaunchUrl(Uri.parse(url))) {
-                                    await launchUrl(
-                                      Uri.parse(url),
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
-                              ),
-                            ),
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/626/small/bakeryswap.png?1613740980'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('BakerySwap'),
-                                subtitle: const Text(
-                                    'AMM and NFT Marketplace solutions in one place.'),
-                                onTap: () async {
-                                  const url =
-                                      'https://www.bakeryswap.org/#/swap';
-                                  if (await canLaunchUrl(Uri.parse(url))) {
-                                    await launchUrl(
-                                      Uri.parse(url),
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: 350,
-                        child: Column(
-                          children: [
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('BSCSwap'),
-                                subtitle: const Text(
-                                    'AMM now available for Binance Smart Chain.'),
-                                onTap: () async {
-                                  const url =
-                                      'https://trade.bscswap.com/#/swap';
-                                  if (await canLaunchUrl(Uri.parse(url))) {
-                                    await launchUrl(
-                                      Uri.parse(url),
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
-                              ),
-                            ),
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('BSCSwap'),
-                                subtitle: const Text(
-                                    'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
-                                onTap: () async {
-                                  const url = 'https://bscswap.com';
-                                  if (await canLaunch(url)) {
-                                    await launch(
-                                      url,
-                                      forceSafariVC: true,
-                                      forceWebView: true,
-                                      headers: <String, String>{
-                                        'my_header_key': 'my_header_value'
-                                      },
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
-                              ),
-                            ),
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('BSCSwap'),
-                                subtitle: const Text(
-                                    'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
-                                onTap: () async {
-                                  const url = 'https://bscswap.com';
-                                  if (await canLaunch(url)) {
-                                    await launch(
-                                      url,
-                                      forceSafariVC: true,
-                                      forceWebView: true,
-                                      headers: <String, String>{
-                                        'my_header_key': 'my_header_value'
-                                      },
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: 250,
-                        child: Column(
-                          children: [
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
-                                  subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
-                                  subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
-                                  subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: 250,
-                        child: Column(
-                          children: [
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
-                                  subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
-                                  subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
-                                  subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / .5,
-                        // height: MediaQuery.of(context).size.height / 30,
-                        child: const Text(
-                          'Popular',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 350,
+                          child: Column(
+                            children: [
+                              DappView(
+                                  url: controller.exchangeList[0].url!,
+                                  name: controller.exchangeList[0].name!,
+                                  image: controller.exchangeList[0].image!,
+                                  description:
+                                      controller.exchangeList[0].description),
+                              DappView(
+                                  url: controller.exchangeList[1].url!,
+                                  name: controller.exchangeList[1].name!,
+                                  image: controller.exchangeList[1].image!,
+                                  description:
+                                      controller.exchangeList[1].description),
+                              DappView(
+                                  url: controller.exchangeList[2].url!,
+                                  name: controller.exchangeList[2].name!,
+                                  image: controller.exchangeList[2].image!,
+                                  description:
+                                      controller.exchangeList[2].description),
+                            ],
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 350,
-                        child: Column(
-                          children: [
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/687/small/pancakeswap.jpeg?1626060212'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('PancakeSwap (v2)'),
-                                subtitle: const Text(
-                                    'The flippening is coming.Stack \$CAKE on Binance Smart Chain.'),
-                                onTap: () async {
-                                  const url = 'https://pancakeswap.finance';
-                                  if (await canLaunch(url)) {
-                                    await launch(
-                                      url,
-                                      forceSafariVC: true,
-                                      forceWebView: true,
-                                      headers: <String, String>{
-                                        'my_header_key': 'my_header_value'
-                                      },
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
-                              ),
-                            ),
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/720/small/sushiswap-polygon-matic.png?1634201163'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('SushiSwap'),
-                                subtitle: const Text(
-                                    'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
-                                onTap: () async {
-                                  const url = 'https://app.sushi.com/swap';
-                                  if (await canLaunch(url)) {
-                                    await launch(
-                                      url,
-                                      forceSafariVC: true,
-                                      forceWebView: true,
-                                      headers: <String, String>{
-                                        'my_header_key': 'my_header_value'
-                                      },
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
-                              ),
-                            ),
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/626/small/bakeryswap.png?1613740980'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('BakerySwap'),
-                                subtitle: const Text(
-                                    'AMM and NFT Marketplace solutions in one place.'),
-                                onTap: () async {
-                                  const url =
-                                      'https://www.bakeryswap.org/#/swap';
-                                  if (await canLaunch(url)) {
-                                    await launch(
-                                      url,
-                                      forceSafariVC: true,
-                                      forceWebView: true,
-                                      headers: <String, String>{
-                                        'my_header_key': 'my_header_value'
-                                      },
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: 350,
-                        child: Column(
-                          children: [
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('BSCSwap'),
-                                subtitle: const Text(
-                                    'AMM now available for Binance Smart Chain.'),
-                                onTap: () async {
-                                  const url =
-                                      'https://trade.bscswap.com/#/swap';
-                                  if (await canLaunch(url)) {
-                                    await launch(
-                                      url,
-                                      forceSafariVC: true,
-                                      forceWebView: true,
-                                      headers: <String, String>{
-                                        'my_header_key': 'my_header_value'
-                                      },
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
-                              ),
-                            ),
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('BSCSwap'),
-                                subtitle: const Text(
-                                    'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
-                                onTap: () async {
-                                  const url = 'https://bscswap.com';
-                                  if (await canLaunch(url)) {
-                                    await launch(
-                                      url,
-                                      forceSafariVC: true,
-                                      forceWebView: true,
-                                      headers: <String, String>{
-                                        'my_header_key': 'my_header_value'
-                                      },
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
-                              ),
-                            ),
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('BSCSwap'),
-                                subtitle: const Text(
-                                    'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
-                                onTap: () async {
-                                  const url = 'https://bscswap.com';
-                                  if (await canLaunch(url)) {
-                                    await launch(
-                                      url,
-                                      forceSafariVC: true,
-                                      forceWebView: true,
-                                      headers: <String, String>{
-                                        'my_header_key': 'my_header_value'
-                                      },
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: 250,
-                        child: Column(
-                          children: [
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
+                        SizedBox(
+                          width: 350,
+                          child: Column(
+                            children: [
+                              Card(
+                                child: ListTile(
+                                  leading: const CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
+                                  ),
+                                  tileColor: Theme.of(context).primaryColor,
+                                  title: const Text('BSCSwap'),
                                   subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
+                                      'AMM now available for Binance Smart Chain.'),
+                                  onTap: () async {
+                                    const url =
+                                        'https://trade.bscswap.com/#/swap';
+                                    if (await canLaunchUrl(Uri.parse(url))) {
+                                      await launchUrl(
+                                        Uri.parse(url),
+                                      );
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: const CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
+                                  ),
+                                  tileColor: Theme.of(context).primaryColor,
+                                  title: const Text('BSCSwap'),
                                   subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
+                                      'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
+                                  onTap: () async {
+                                    const url = 'https://bscswap.com';
+                                    if (await canLaunch(url)) {
+                                      await launch(
+                                        url,
+                                        forceSafariVC: true,
+                                        forceWebView: true,
+                                        headers: <String, String>{
+                                          'my_header_key': 'my_header_value'
+                                        },
+                                      );
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: const CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
+                                  ),
+                                  tileColor: Theme.of(context).primaryColor,
+                                  title: const Text('BSCSwap'),
                                   subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: 250,
-                        child: Column(
-                          children: [
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
-                                  subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
-                                  subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
-                                  subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / .5,
-                        //height: MediaQuery.of(context).size.height / 30,
-                        child: const Text(
-                          'Yield Farming',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                                      'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
+                                  onTap: () async {
+                                    const url = 'https://bscswap.com';
+                                    if (await canLaunch(url)) {
+                                      await launch(
+                                        url,
+                                        forceSafariVC: true,
+                                        forceWebView: true,
+                                        headers: <String, String>{
+                                          'my_header_key': 'my_header_value'
+                                        },
+                                      );
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 350,
-                        child: Column(
-                          children: [
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/687/small/pancakeswap.jpeg?1626060212'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('PancakeSwap (v2)'),
-                                subtitle: const Text(
-                                    'The flippening is coming.Stack \$CAKE on Binance Smart Chain.'),
-                                onTap: () async {
-                                  const url = 'https://pancakeswap.finance';
-                                  if (await canLaunch(url)) {
-                                    await launch(
-                                      url,
-                                      forceSafariVC: true,
-                                      forceWebView: true,
-                                      headers: <String, String>{
-                                        'my_header_key': 'my_header_value'
-                                      },
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
+                        SizedBox(
+                          width: 250,
+                          child: Column(
+                            children: [
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
                               ),
-                            ),
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/720/small/sushiswap-polygon-matic.png?1634201163'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('SushiSwap'),
-                                subtitle: const Text(
-                                    'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
-                                onTap: () async {
-                                  const url = 'https://app.sushi.com/swap';
-                                  if (await canLaunch(url)) {
-                                    await launch(
-                                      url,
-                                      forceSafariVC: true,
-                                      forceWebView: true,
-                                      headers: <String, String>{
-                                        'my_header_key': 'my_header_value'
-                                      },
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
                               ),
-                            ),
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/626/small/bakeryswap.png?1613740980'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('BakerySwap'),
-                                subtitle: const Text(
-                                    'AMM and NFT Marketplace solutions in one place.'),
-                                onTap: () async {
-                                  const url =
-                                      'https://www.bakeryswap.org/#/swap';
-                                  if (await canLaunch(url)) {
-                                    await launch(
-                                      url,
-                                      forceSafariVC: true,
-                                      forceWebView: true,
-                                      headers: <String, String>{
-                                        'my_header_key': 'my_header_value'
-                                      },
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 350,
-                        child: Column(
-                          children: [
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('BSCSwap'),
-                                subtitle: const Text(
-                                    'AMM now available for Binance Smart Chain.'),
-                                onTap: () async {
-                                  const url =
-                                      'https://trade.bscswap.com/#/swap';
-                                  if (await canLaunch(url)) {
-                                    await launch(
-                                      url,
-                                      forceSafariVC: true,
-                                      forceWebView: true,
-                                      headers: <String, String>{
-                                        'my_header_key': 'my_header_value'
-                                      },
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
+                        SizedBox(
+                          width: 250,
+                          child: Column(
+                            children: [
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
                               ),
-                            ),
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('BSCSwap'),
-                                subtitle: const Text(
-                                    'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
-                                onTap: () async {
-                                  const url = 'https://bscswap.com';
-                                  if (await canLaunch(url)) {
-                                    await launch(
-                                      url,
-                                      forceSafariVC: true,
-                                      forceWebView: true,
-                                      headers: <String, String>{
-                                        'my_header_key': 'my_header_value'
-                                      },
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
                               ),
-                            ),
-                            Card(
-                              child: ListTile(
-                                leading: const CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
-                                ),
-                                tileColor: Theme.of(context).primaryColor,
-                                title: const Text('BSCSwap'),
-                                subtitle: const Text(
-                                    'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
-                                onTap: () async {
-                                  const url = 'https://bscswap.com';
-                                  if (await canLaunch(url)) {
-                                    await launch(
-                                      url,
-                                      forceSafariVC: true,
-                                      forceWebView: true,
-                                      headers: <String, String>{
-                                        'my_header_key': 'my_header_value'
-                                      },
-                                    );
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 250,
-                        child: Column(
-                          children: [
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
-                                  subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
-                                  subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
-                                  subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: 250,
-                        child: Column(
-                          children: [
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
-                                  subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
-                                  subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                            Card(
-                              child: ListTile(
-                                  title: Text('Motivation $int'),
-                                  subtitle: const Text(
-                                      'this is a description of the motivation')),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / .5,
+                          // height: MediaQuery.of(context).size.height / 30,
+                          child: const Text(
+                            'Popular',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 350,
+                          child: Column(
+                            children: [
+                              Card(
+                                child: ListTile(
+                                  leading: const CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://assets.coingecko.com/markets/images/687/small/pancakeswap.jpeg?1626060212'),
+                                  ),
+                                  tileColor: Theme.of(context).primaryColor,
+                                  title: const Text('PancakeSwap (v2)'),
+                                  subtitle: const Text(
+                                      'The flippening is coming.Stack \$CAKE on Binance Smart Chain.'),
+                                  onTap: () async {
+                                    const url = 'https://pancakeswap.finance';
+                                    if (await canLaunch(url)) {
+                                      await launch(
+                                        url,
+                                        forceSafariVC: true,
+                                        forceWebView: true,
+                                        headers: <String, String>{
+                                          'my_header_key': 'my_header_value'
+                                        },
+                                      );
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: const CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://assets.coingecko.com/markets/images/720/small/sushiswap-polygon-matic.png?1634201163'),
+                                  ),
+                                  tileColor: Theme.of(context).primaryColor,
+                                  title: const Text('SushiSwap'),
+                                  subtitle: const Text(
+                                      'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
+                                  onTap: () async {
+                                    const url = 'https://app.sushi.com/swap';
+                                    if (await canLaunch(url)) {
+                                      await launch(
+                                        url,
+                                        forceSafariVC: true,
+                                        forceWebView: true,
+                                        headers: <String, String>{
+                                          'my_header_key': 'my_header_value'
+                                        },
+                                      );
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: const CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://assets.coingecko.com/markets/images/626/small/bakeryswap.png?1613740980'),
+                                  ),
+                                  tileColor: Theme.of(context).primaryColor,
+                                  title: const Text('BakerySwap'),
+                                  subtitle: const Text(
+                                      'AMM and NFT Marketplace solutions in one place.'),
+                                  onTap: () async {
+                                    const url =
+                                        'https://www.bakeryswap.org/#/swap';
+                                    if (await canLaunch(url)) {
+                                      await launch(
+                                        url,
+                                        forceSafariVC: true,
+                                        forceWebView: true,
+                                        headers: <String, String>{
+                                          'my_header_key': 'my_header_value'
+                                        },
+                                      );
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 350,
+                          child: Column(
+                            children: [
+                              Card(
+                                child: ListTile(
+                                  leading: const CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
+                                  ),
+                                  tileColor: Theme.of(context).primaryColor,
+                                  title: const Text('BSCSwap'),
+                                  subtitle: const Text(
+                                      'AMM now available for Binance Smart Chain.'),
+                                  onTap: () async {
+                                    const url =
+                                        'https://trade.bscswap.com/#/swap';
+                                    if (await canLaunch(url)) {
+                                      await launch(
+                                        url,
+                                        forceSafariVC: true,
+                                        forceWebView: true,
+                                        headers: <String, String>{
+                                          'my_header_key': 'my_header_value'
+                                        },
+                                      );
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: const CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
+                                  ),
+                                  tileColor: Theme.of(context).primaryColor,
+                                  title: const Text('BSCSwap'),
+                                  subtitle: const Text(
+                                      'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
+                                  onTap: () async {
+                                    const url = 'https://bscswap.com';
+                                    if (await canLaunch(url)) {
+                                      await launch(
+                                        url,
+                                        forceSafariVC: true,
+                                        forceWebView: true,
+                                        headers: <String, String>{
+                                          'my_header_key': 'my_header_value'
+                                        },
+                                      );
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: const CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
+                                  ),
+                                  tileColor: Theme.of(context).primaryColor,
+                                  title: const Text('BSCSwap'),
+                                  subtitle: const Text(
+                                      'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
+                                  onTap: () async {
+                                    const url = 'https://bscswap.com';
+                                    if (await canLaunch(url)) {
+                                      await launch(
+                                        url,
+                                        forceSafariVC: true,
+                                        forceWebView: true,
+                                        headers: <String, String>{
+                                          'my_header_key': 'my_header_value'
+                                        },
+                                      );
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 250,
+                          child: Column(
+                            children: [
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
+                              ),
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
+                              ),
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 250,
+                          child: Column(
+                            children: [
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
+                              ),
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
+                              ),
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / .5,
+                          //height: MediaQuery.of(context).size.height / 30,
+                          child: const Text(
+                            'Yield Farming',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 350,
+                          child: Column(
+                            children: [
+                              Card(
+                                child: ListTile(
+                                  leading: const CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://assets.coingecko.com/markets/images/687/small/pancakeswap.jpeg?1626060212'),
+                                  ),
+                                  tileColor: Theme.of(context).primaryColor,
+                                  title: const Text('PancakeSwap (v2)'),
+                                  subtitle: const Text(
+                                      'The flippening is coming.Stack \$CAKE on Binance Smart Chain.'),
+                                  onTap: () async {
+                                    const url = 'https://pancakeswap.finance';
+                                    if (await canLaunch(url)) {
+                                      await launch(
+                                        url,
+                                        forceSafariVC: true,
+                                        forceWebView: true,
+                                        headers: <String, String>{
+                                          'my_header_key': 'my_header_value'
+                                        },
+                                      );
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: const CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://assets.coingecko.com/markets/images/720/small/sushiswap-polygon-matic.png?1634201163'),
+                                  ),
+                                  tileColor: Theme.of(context).primaryColor,
+                                  title: const Text('SushiSwap'),
+                                  subtitle: const Text(
+                                      'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
+                                  onTap: () async {
+                                    const url = 'https://app.sushi.com/swap';
+                                    if (await canLaunch(url)) {
+                                      await launch(
+                                        url,
+                                        forceSafariVC: true,
+                                        forceWebView: true,
+                                        headers: <String, String>{
+                                          'my_header_key': 'my_header_value'
+                                        },
+                                      );
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: const CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://assets.coingecko.com/markets/images/626/small/bakeryswap.png?1613740980'),
+                                  ),
+                                  tileColor: Theme.of(context).primaryColor,
+                                  title: const Text('BakerySwap'),
+                                  subtitle: const Text(
+                                      'AMM and NFT Marketplace solutions in one place.'),
+                                  onTap: () async {
+                                    const url =
+                                        'https://www.bakeryswap.org/#/swap';
+                                    if (await canLaunch(url)) {
+                                      await launch(
+                                        url,
+                                        forceSafariVC: true,
+                                        forceWebView: true,
+                                        headers: <String, String>{
+                                          'my_header_key': 'my_header_value'
+                                        },
+                                      );
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 350,
+                          child: Column(
+                            children: [
+                              Card(
+                                child: ListTile(
+                                  leading: const CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
+                                  ),
+                                  tileColor: Theme.of(context).primaryColor,
+                                  title: const Text('BSCSwap'),
+                                  subtitle: const Text(
+                                      'AMM now available for Binance Smart Chain.'),
+                                  onTap: () async {
+                                    const url =
+                                        'https://trade.bscswap.com/#/swap';
+                                    if (await canLaunch(url)) {
+                                      await launch(
+                                        url,
+                                        forceSafariVC: true,
+                                        forceWebView: true,
+                                        headers: <String, String>{
+                                          'my_header_key': 'my_header_value'
+                                        },
+                                      );
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: const CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
+                                  ),
+                                  tileColor: Theme.of(context).primaryColor,
+                                  title: const Text('BSCSwap'),
+                                  subtitle: const Text(
+                                      'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
+                                  onTap: () async {
+                                    const url = 'https://bscswap.com';
+                                    if (await canLaunch(url)) {
+                                      await launch(
+                                        url,
+                                        forceSafariVC: true,
+                                        forceWebView: true,
+                                        headers: <String, String>{
+                                          'my_header_key': 'my_header_value'
+                                        },
+                                      );
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: const CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        'https://assets.coingecko.com/markets/images/594/small/bscswap_logo.png?1602555906'),
+                                  ),
+                                  tileColor: Theme.of(context).primaryColor,
+                                  title: const Text('BSCSwap'),
+                                  subtitle: const Text(
+                                      'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized.'),
+                                  onTap: () async {
+                                    const url = 'https://bscswap.com';
+                                    if (await canLaunch(url)) {
+                                      await launch(
+                                        url,
+                                        forceSafariVC: true,
+                                        forceWebView: true,
+                                        headers: <String, String>{
+                                          'my_header_key': 'my_header_value'
+                                        },
+                                      );
+                                    } else {
+                                      throw 'Could not launch $url';
+                                    }
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 250,
+                          child: Column(
+                            children: [
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
+                              ),
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
+                              ),
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 250,
+                          child: Column(
+                            children: [
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
+                              ),
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
+                              ),
+                              Card(
+                                child: ListTile(
+                                    title: Text('Motivation $int'),
+                                    subtitle: const Text(
+                                        'this is a description of the motivation')),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
