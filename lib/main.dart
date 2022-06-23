@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mops_wallet/controllers/exchange_controller.dart';
-import 'package:mops_wallet/controllers/search_controller.dart';
-import 'package:mops_wallet/controllers/wallet_controller.dart';
-import 'package:mops_wallet/pages/home.dart';
 import 'package:get/get.dart';
 import 'package:mops_wallet/dependencies/dependencies.dart' as dep;
+import 'package:mops_wallet/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,17 +17,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    Get.find<WalletController>().getTokenList();
-    Get.find<SearchController>().getSearch('');
-    Get.find<ExchangeController>().getExchangeList('');
-    return GetBuilder<WalletController>(builder: (_) {
-      return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const MyHomePage(),
-      );
-    });
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const SplashScreen(),
+    );
   }
 }

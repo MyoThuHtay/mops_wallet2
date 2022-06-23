@@ -1,9 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mops_wallet/controllers/search_controller.dart';
 import 'package:mops_wallet/utils/colors.dart';
-import 'package:mops_wallet/utils/dimensions.dart';
 
 class SearchCoin extends StatefulWidget {
   const SearchCoin({Key? key}) : super(key: key);
@@ -40,13 +39,11 @@ class _SearchCoinState extends State<SearchCoin> {
               onChanged: (String text) {
                 //myController.text = text;
                 coin.getSearch(text);
-              }
-              ,
+              },
               onFieldSubmitted: (String text) {
                 //myController.text = text;
                 coin.getSearch(text);
-            }
-            ,
+              },
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: '  Search Tokens',
@@ -70,62 +67,79 @@ class _SearchCoinState extends State<SearchCoin> {
           itemCount: coin.searchList.length + 1,
           itemBuilder: (context, index) {
             if (index == 0) {
-              return ListTile(
-                tileColor: AppColors.textColor,
-                leading: const Icon(
-                  Icons.add_circle_outline_sharp,
-                  size: 40,
-                  color: Colors.blue,
-                ),
-                title: const Text('Add Custom Token'),
-                onTap: () {},
+              return Column(
+                children: [
+                  ListTile(
+                    tileColor: AppColors.backgroundColor,
+                    leading: const Icon(
+                      Icons.add_circle_outline_sharp,
+                      size: 40,
+                      color: Colors.blue,
+                    ),
+                    title: const Text('Add Custom Token'),
+                    onTap: () {},
+                  ),
+                  const Divider(
+                    indent: 30,
+                    endIndent: 30,
+                    height: 05,
+                    color: AppColors.conColor,
+                  )
+                ],
               );
             }
             index -= 1;
             return ListTile(
-              onTap: (){},
-              tileColor: AppColors.mainColor,
-              leading: CircleAvatar(
-                radius: 20.0,
-                backgroundColor: AppColors.conColor,
-                child: CachedNetworkImage(
-                  imageUrl: coin.searchList[index].coins[index].large!,
-                  imageBuilder: (context, imageProvider) => Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: imageProvider, fit: BoxFit.fitWidth),
-                      borderRadius: BorderRadius.circular(Dimensions.radius15),
-                      color: AppColors.iconColor0,
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.grey[500]!,
-                            offset: const Offset(4, 4),
-                            blurRadius: 10,
-                            spreadRadius: 1),
-                        const BoxShadow(
-                            color: Colors.white,
-                            offset: Offset(-4, -4),
-                            blurRadius: 10,
-                            spreadRadius: 1)
-                      ],
-                    ),
-                    height: Dimensions.height30 * 3 + 8,
-                    width: Dimensions.width30 * 2 + 8,
-                  ),
-                  errorWidget: (context, url, error) =>
-                      Image.asset('assets/images/banner.png'),
+              onTap: () {},
+              tileColor: AppColors.backgroundColor,
+              leading: Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColors.avatorColor, width: 1),
+                  borderRadius: BorderRadius.circular(100),
+                ),
+                child: Image.network(
+                  coin.searchList[index].coins![index].large!,
+                  fit: BoxFit.contain,
+                  // width: 40,
+                  // height: 40,
                 ),
               ),
-              title: Text(coin.searchList[index].coins[index].name!),
+              title: Row(
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // mainAxisSize: MainAxisSize.max,
+                children: [
+                  FittedBox(
+                    fit: BoxFit.contain,
+                    child: Text(
+                      coin.searchList[index].coins![index].name!,
+                      style: const TextStyle(color: AppColors.textColor),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  FittedBox(
+                    fit: BoxFit.contain,
+                    child: Text(
+                      coin.searchList[index].coins![index].symbol!,
+                      style: const TextStyle(color: AppColors.tittleColor),
+                    ),
+                  ),
+                ],
+              ),
+              //subtitle: Text(coin.searchList[index].coins![index].symbol!),
               trailing: Switch.adaptive(
-                value: coin.isLoaded == isShow,
+                value: isShow,
                 activeColor: AppColors.iconColor2,
                 onChanged: (_value) {
                   setState(() {
                     isShow = _value;
+                    if (kDebugMode) {
+                      print(_value);
+                    }
                   });
-
-                  print(isShow);
                 },
               ),
             );

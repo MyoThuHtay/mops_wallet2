@@ -15,7 +15,7 @@ import 'package:get/get.dart';
 Future<void> init() async {
   //api
   Get.lazyPut(() => ApiClient(appBaseUrl: Constants.baseUrl));
-  Get.lazyPut(() => CoinApi(appBaseUrl: Constants.baseUrl2));
+  Get.lazyPut(() => CoinApi(appBaseUrl: Constants.baseUrl));
   Get.lazyPut(() => SearchApi(appBaseUrl: Constants.baseUrl2));
   Get.lazyPut(() => ExchangeApi(appBaseUrl: Constants.baseUrl2));
 

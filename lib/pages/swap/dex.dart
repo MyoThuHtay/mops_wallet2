@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mops_wallet/utils/colors.dart';
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Dex extends StatelessWidget {
@@ -7,11 +8,11 @@ class Dex extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: false,
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: AppColors.appBarColor,
         title: const Text('DEX'),
       ),
       body: SizedBox(
@@ -162,8 +163,7 @@ class Dex extends StatelessWidget {
                         //border: Border.all(color: Colors.blueGrey, width: 2),
                         shape: BoxShape.rectangle,
                         borderRadius: BorderRadius.circular(10),
-                        color:
-                        Theme.of(context).indicatorColor, // Creates border
+                        color: AppColors.mainColor, // Creates border
                       ),
                       width: MediaQuery.of(context).size.width / 8,
                       height: MediaQuery.of(context).size.height / 20,
@@ -172,7 +172,7 @@ class Dex extends StatelessWidget {
                         child: const Text(
                           '25%',
                           style:
-                          TextStyle(color: Colors.blueAccent, fontSize: 14),
+                              TextStyle(color: Colors.blueAccent, fontSize: 14),
                         ),
                       ),
                     ),
@@ -184,8 +184,7 @@ class Dex extends StatelessWidget {
                         //border: Border.all(color: Colors.blueGrey, width: 2),
                         shape: BoxShape.rectangle,
                         borderRadius: BorderRadius.circular(10),
-                        color:
-                        Theme.of(context).indicatorColor, // Creates border
+                        color: AppColors.mainColor, // Creates border
                       ),
                       width: MediaQuery.of(context).size.width / 8,
                       height: MediaQuery.of(context).size.height / 20,
@@ -194,7 +193,7 @@ class Dex extends StatelessWidget {
                         child: const Text(
                           '50%',
                           style:
-                          TextStyle(color: Colors.blueAccent, fontSize: 14),
+                              TextStyle(color: Colors.blueAccent, fontSize: 14),
                         ),
                       ),
                     ),
@@ -206,8 +205,7 @@ class Dex extends StatelessWidget {
                         //border: Border.all(color: Colors.blueGrey, width: 2),
                         shape: BoxShape.rectangle,
                         borderRadius: BorderRadius.circular(10),
-                        color:
-                        Theme.of(context).indicatorColor, // Creates border
+                        color: AppColors.mainColor, // Creates border
                       ),
                       width: MediaQuery.of(context).size.width / 8,
                       height: MediaQuery.of(context).size.height / 20,
@@ -216,7 +214,7 @@ class Dex extends StatelessWidget {
                         child: const Text(
                           '75%',
                           style:
-                          TextStyle(color: Colors.blueAccent, fontSize: 14),
+                              TextStyle(color: Colors.blueAccent, fontSize: 14),
                         ),
                       ),
                     ),
@@ -228,8 +226,7 @@ class Dex extends StatelessWidget {
                         //border: Border.all(color: Colors.blueGrey, width: 2),
                         shape: BoxShape.rectangle,
                         borderRadius: BorderRadius.circular(10),
-                        color:
-                        Theme.of(context).indicatorColor, // Creates border
+                        color: AppColors.mainColor, // Creates border
                       ),
                       width: MediaQuery.of(context).size.width / 7,
                       height: MediaQuery.of(context).size.height / 20,
@@ -238,7 +235,7 @@ class Dex extends StatelessWidget {
                         child: const Text(
                           '100%',
                           style:
-                          TextStyle(color: Colors.blueAccent, fontSize: 14),
+                              TextStyle(color: Colors.blueAccent, fontSize: 14),
                         ),
                       ),
                     ),

@@ -12,7 +12,7 @@ import 'package:mops_wallet/utils/text_and_icon.dart';
 
 class TokenDetail extends StatefulWidget {
   final double amount;
-  final String imageUrl;
+  final String? imageUrl;
   final String name;
   final num price;
   final double changePercentage;
@@ -22,7 +22,7 @@ class TokenDetail extends StatefulWidget {
   const TokenDetail(
       {Key? key,
       required this.amount,
-      required this.imageUrl,
+      required this.imageUrl ,
       required this.name,
       required this.price,
       required this.changePercentage,
@@ -125,7 +125,7 @@ class _TokenDetailState extends State<TokenDetail> {
                         ),
                         Center(
                           child: CachedNetworkImage(
-                            imageUrl: widget.imageUrl,
+                            imageUrl: widget.imageUrl! ,
                             imageBuilder: (context, imageProvider) =>
                                 CircleAvatar(
                               backgroundColor: AppColors.conColor,

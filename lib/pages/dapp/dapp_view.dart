@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mops_wallet/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DappView extends StatelessWidget {
@@ -18,17 +19,23 @@ class DappView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: const EdgeInsets.only(left: 10, top: 10, right: 10),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundImage: NetworkImage(image),
+          child: Image.network(image),
         ),
-        tileColor: Theme.of(context).primaryColor,
+        tileColor: AppColors.backgroundColor,
         title: Text(name),
-        subtitle: Text(description!),
+        subtitle: Text(description!.length > 50
+            ? description!.substring(0, 50) + "..."
+            : description!),
         onTap: () async {
           //var uri = url;
           if (await canLaunchUrl(Uri.parse(url))) {
-            await launchUrl(Uri.parse(url), mode: LaunchMode.platformDefault);
+            await launchUrl(Uri.parse(url),
+                mode: LaunchMode.platformDefault,
+                webViewConfiguration:
+                    const WebViewConfiguration(enableJavaScript: true));
           } else {
             throw 'Could not launch $url';
           }

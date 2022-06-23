@@ -55,6 +55,7 @@ dependencies:
   font_awesome_flutter: ^10.1.0
   url_launcher: ^6.0.17
   cached_network_image: ^3.2.0
+  #parse_server_sdk_flutter: ^3.1.2
 
 
 

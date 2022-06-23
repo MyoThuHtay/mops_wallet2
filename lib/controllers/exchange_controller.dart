@@ -13,12 +13,17 @@ class ExchangeController extends GetxController {
   bool get isLoaded => _isLoaded;
 
   final List exchange = [
+    'aave',
     'uniswap',
     'pancakeswap_new',
     'sushiswap',
+    "one_inch_liquidity_protocol_bsc",
+    'apeswap',
+    'anyswap',
+    'auroraswap'
   ];
 
-  Future<List<ExchangeModel>> getExchangeList(String query) async {
+  Future<List<ExchangeModel>> getExchangeList() async {
     _exchangeList = [];
     //List<SearchCoin> coin = response.body;
     for (int i = 0; i < exchange.length; i++) {
