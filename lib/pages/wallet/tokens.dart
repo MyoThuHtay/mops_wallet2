@@ -118,7 +118,7 @@ class _TokensState extends State<Tokens> {
                   int? amount = coin.coinInfos[index].balance!.toInt();
                   double? total = price! * amount;
 
-                  String tokenAddress = coin.coinList[index].tokenAddress!;
+                  String tokenAddress = coin.coinInfos[index].tokenAddress ?? '';
                   return TokenBalanceView(
                     amount: amount.toDouble(),
                     imageUrl: imageUrl ,

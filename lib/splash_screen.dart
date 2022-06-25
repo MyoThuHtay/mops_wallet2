@@ -23,19 +23,17 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   startTimer() async {
-    var duration = const Duration(seconds: 5);
+    var duration = const Duration(seconds: 30);
     return Timer(duration, route);
   }
 
   @override
   Widget build(BuildContext context) {
-    //Get.find<WalletController>().getCoinInfo();
-    Get.find<WalletController>().getTokenList();
-    //Get.find<WalletController>().getTokenPrice();
+    Get.find<WalletController>().getBscTokenList();
     Get.find<SearchController>().getSearch('coin');
     Get.find<ExchangeController>().getExchangeList();
     return GetBuilder<WalletController>(
-      builder: (_) {
+      builder: (coin) {
         return Scaffold(
           body: Container(
             constraints: const BoxConstraints.expand(),
@@ -57,6 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 const SizedBox(
                   height: 20,
                 ),
+                const CircularProgressIndicator()
               ],
             ),
           ),

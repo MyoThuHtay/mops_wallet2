@@ -1,13 +1,15 @@
 // ignore: file_names
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 class PriceModel {
   NativePrice? nativePrice;
-  double? usdPrice;
+  var usdPrice;
   String? exchangeAddress;
   String? exchangeName;
 
   PriceModel(
       {this.nativePrice,
-      this.usdPrice,
+      this.usdPrice = 0,
       this.exchangeAddress,
       this.exchangeName});
 
@@ -15,7 +17,7 @@ class PriceModel {
     nativePrice = json['nativePrice'] != null
         ? NativePrice.fromJson(json['nativePrice'])
         : null;
-    usdPrice = json['usdPrice'] ?? 0;
+    usdPrice = json['usdPrice'] ?? 0.0;
     exchangeAddress = json['exchangeAddress'] ?? '';
     exchangeName = json['exchangeName'] ?? '';
   }

@@ -1,4 +1,42 @@
 class TokensLogo {
+  String? name;
+  String? logoURI;
+  String? timestamp;
+  List<Tokens>? tokens;
+  Version? version;
+
+  TokensLogo({this.name, this.logoURI, this.timestamp, this.tokens, this.version});
+
+  TokensLogo.fromJson(Map<String, dynamic> json) {
+    name = json['name'];
+    logoURI = json['logoURI'];
+    timestamp = json['timestamp'];
+    if (json['tokens'] != null) {
+      tokens = <Tokens>[];
+      json['tokens'].forEach((v) {
+        tokens!.add(Tokens.fromJson(v));
+      });
+    }
+    version =
+        json['version'] != null ? Version.fromJson(json['version']) : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['logoURI'] = logoURI;
+    data['timestamp'] = timestamp;
+    if (tokens != null) {
+      data['tokens'] = tokens!.map((v) => v.toJson()).toList();
+    }
+    if (version != null) {
+      data['version'] = version!.toJson();
+    }
+    return data;
+  }
+}
+
+class Tokens {
   int? chainId;
   String? asset;
   String? type;
@@ -9,7 +47,7 @@ class TokensLogo {
   String? logoURI;
   List<Pairs>? pairs;
 
-  TokensLogo(
+  Tokens(
       {this.chainId,
       this.asset,
       this.type,
@@ -20,7 +58,7 @@ class TokensLogo {
       this.logoURI,
       this.pairs});
 
-  TokensLogo.fromJson(Map<String, dynamic> json) {
+  Tokens.fromJson(Map<String, dynamic> json) {
     chainId = json['chainId'];
     asset = json['asset'];
     type = json['type'];

@@ -22,7 +22,7 @@ class TokenDetail extends StatefulWidget {
   const TokenDetail(
       {Key? key,
       required this.amount,
-      required this.imageUrl ,
+      required this.imageUrl,
       required this.name,
       required this.price,
       required this.changePercentage,
@@ -125,16 +125,30 @@ class _TokenDetailState extends State<TokenDetail> {
                         ),
                         Center(
                           child: CachedNetworkImage(
-                            imageUrl: widget.imageUrl! ,
-                            imageBuilder: (context, imageProvider) =>
-                                CircleAvatar(
-                              backgroundColor: AppColors.conColor,
-                              foregroundImage: imageProvider,
+                            imageUrl: widget.imageUrl!,
+                            imageBuilder: (context, imageProvider) => Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: imageProvider, fit: BoxFit.fitWidth),
+                                borderRadius:
+                                    BorderRadius.circular(Dimensions.radius15),
+                                color: AppColors.iconColor0,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.grey[500]!,
+                                      offset: const Offset(4, 4),
+                                      blurRadius: 10,
+                                      spreadRadius: 1),
+                                  const BoxShadow(
+                                      color: Colors.white,
+                                      offset: Offset(-4, -4),
+                                      blurRadius: 10,
+                                      spreadRadius: 1)
+                                ],
+                              ),
+                              height: Dimensions.height30 * 2 + 10,
+                              width: Dimensions.width30 * 2 + 10,
                             ),
-                            // placeholder: (context, url) => Container(
-                            //   alignment: Alignment.center,
-                            //   child: Image.asset('assets/images/banner.png'),
-                            // ),
                             errorWidget: (context, url, error) =>
                                 Image.asset('assets/images/banner.png'),
                           ),

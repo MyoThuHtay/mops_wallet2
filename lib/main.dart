@@ -3,10 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:mops_wallet/dependencies/dependencies.dart' as dep;
 import 'package:mops_wallet/splash_screen.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   await dep.init();
+  
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
