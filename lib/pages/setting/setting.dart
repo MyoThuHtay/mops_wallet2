@@ -1,30 +1,92 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:mops_wallet/utils/colors.dart';
+import 'package:get/get.dart';
+import 'package:mops_wallet/controllers/wallet_controller.dart';
+import 'package:mops_wallet/model/wallet_model.dart';
+import 'package:mops_wallet/pages/wallet_create/create_wallet.dart';
+import 'package:mops_wallet/pages/wallet_create/create_pin.dart';
+import 'package:mops_wallet/theme_provider.dart';
 import 'package:mops_wallet/utils/dimensions.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'about.dart';
 
-
 class Setting extends StatefulWidget {
-  const Setting({Key? key}) : super(key: key);
-
+  const Setting({Key? key, required this.wallet}) : super(key: key);
+  final Wallets wallet;
   @override
   State<Setting> createState() => _SettingState();
 }
 
 class _SettingState extends State<Setting> {
+  String dropdownValue = 'MainNet';
+  bool isMainNet = true;
+  @override
+  void initState() {
+    mainNet();
+    super.initState();
+  }
+
+  mainNet() async {
+    final mainNet = await SharedPreferences.getInstance();
+    setState(() {
+      dropdownValue = mainNet.getString('mainNet') ?? 'MainNet';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    final name = widget.wallet.wallets;
+    //dropdownValue = value;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: false,
-        backgroundColor: AppColors.appBarColor,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: const Text('Settings'),
+        actions: [
+          DropdownButtonHideUnderline(
+            child: DropdownButton<String>(
+              value: dropdownValue,
+              icon: const Icon(Icons.arrow_drop_down),
+              elevation: 16,
+              style: const TextStyle(color: Colors.white),
+              dropdownColor: Theme.of(context).scaffoldBackgroundColor,
+              onChanged: (String? newValue) async {
+                final mainNet = await SharedPreferences.getInstance();
+
+                setState(() {
+                  dropdownValue = newValue!;
+                  isMainNet = !isMainNet;
+                  mainNet.setBool('isMainNet', isMainNet);
+                  mainNet.setString('mainNet', dropdownValue);
+                  Get.find<WalletController>()
+                      .getBscTokenList(widget.wallet.eth);
+                  Get.find<WalletController>().getCoin(widget.wallet.eth);
+                });
+
+                if (kDebugMode) {
+                  print(mainNet.getBool('isMainNet'));
+                }
+              },
+              items: <String>['MainNet', 'TestNet']
+                  .map<DropdownMenuItem<String>>((String dropdownValue) {
+                return DropdownMenuItem<String>(
+                  value: dropdownValue,
+                  child: Text(dropdownValue),
+                );
+              }).toList(),
+            ),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+        ],
       ),
-      backgroundColor: AppColors.iconColor0,
+      backgroundColor: Theme.of(context).primaryColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -35,7 +97,7 @@ class _SettingState extends State<Setting> {
                 decoration: BoxDecoration(
                   //border: Border.all(color: Colors.black26, width: 2),
                   shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.circular(Dimensions.radius15/3),
+                  borderRadius: BorderRadius.circular(Dimensions.radius15 / 3),
                   color: Colors.green, // Creates border
                 ),
                 child: Icon(
@@ -46,12 +108,11 @@ class _SettingState extends State<Setting> {
                 ),
               ),
               title: const Text('Wallets'),
-              subtitle: const Text('Wallets'),
+              subtitle: Text(name),
               trailing: IconButton(
                 icon: const Icon(Icons.arrow_forward_ios),
                 onPressed: () {
-                  //final provider = Provider.of(context).
-
+                  Get.to(() => const CreateWallet());
                 },
               ),
             ),
@@ -77,13 +138,16 @@ class _SettingState extends State<Setting> {
                 ),
               ),
               title: const Text('Dark Mode'),
-              trailing: Switch.adaptive(
-                  value: true,
-                  onChanged: (value) {
-                    // final provider =
-                    // Provider.of<ThemeProvider>(context, listen: false);
-                    // provider.toggleTheme(value);
-                  }),
+              trailing:
+                  Consumer<ThemeProvider>(builder: (context, provider, child) {
+                return Switch.adaptive(
+                    value: provider.currentTheme,
+                    onChanged: (value) async {
+                      // final provider =
+                      //     Provider.of<ThemeProvider>(context, listen: false);
+                      provider.toggleTheme(value);
+                    });
+              }),
             ),
             const Divider(
               height: .5,
@@ -109,9 +173,7 @@ class _SettingState extends State<Setting> {
               title: const Text('Security'),
               trailing: IconButton(
                 icon: const Icon(Icons.arrow_forward_ios),
-                onPressed: () {
-
-                },
+                onPressed: () => Get.off(() => const PassCode()),
               ),
             ),
             ListTile(
@@ -182,9 +244,7 @@ class _SettingState extends State<Setting> {
               title: const Text('Currency'),
               trailing: IconButton(
                 icon: const Icon(Icons.arrow_forward_ios),
-                onPressed: () {
-
-                },
+                onPressed: () {},
               ),
             ),
             const Divider(

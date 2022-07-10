@@ -2,7 +2,6 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:mops_wallet/utils/colors.dart';
 import 'package:mops_wallet/utils/dimensions.dart';
 
 class TokenBalanceView extends StatelessWidget {
@@ -18,13 +17,13 @@ class TokenBalanceView extends StatelessWidget {
       required this.onTap})
       : super(key: key);
 
-  final double amount;
+  final dynamic amount;
   final String imageUrl;
   final String name;
-  final num? price;
+  final dynamic price;
   final double? changePercentage;
   final String symbol;
-  final double total;
+  final dynamic total;
   final VoidCallback onTap;
 
   @override
@@ -37,12 +36,13 @@ class TokenBalanceView extends StatelessWidget {
             left: Dimensions.width10,
             right: Dimensions.width10),
         child: Container(
+          //color: Theme.of(context).primaryColor,
           width: Dimensions.screenWidth,
           height: Dimensions.height20 * 5,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(Dimensions.radius15),
-              border: Border.all(width: 1, color: AppColors.mainColor),
-              color: AppColors.iconColor0),
+            borderRadius: BorderRadius.circular(Dimensions.radius15),
+            border: Border.all(width: 1),
+          ),
           child: Row(
             children: [
               Padding(
@@ -54,27 +54,10 @@ class TokenBalanceView extends StatelessWidget {
                       image: DecorationImage(
                           image: imageProvider, fit: BoxFit.fitWidth),
                       borderRadius: BorderRadius.circular(Dimensions.radius15),
-                      color: AppColors.iconColor0,
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.grey[500]!,
-                            offset: const Offset(4, 4),
-                            blurRadius: 10,
-                            spreadRadius: 1),
-                        const BoxShadow(
-                            color: Colors.white,
-                            offset: Offset(-4, -4),
-                            blurRadius: 10,
-                            spreadRadius: 1)
-                      ],
                     ),
                     height: Dimensions.height30 * 3 + 8,
                     width: Dimensions.width30 * 2 + 8,
                   ),
-                  // placeholder: (context, url) => Container(
-                  //   alignment: Alignment.center,
-                  //   child: Image.asset('assets/images/banner.png'),
-                  // ),
                   errorWidget: (context, url, error) =>
                       Image.asset('assets/images/banner.png'),
                 ),
@@ -89,11 +72,13 @@ class TokenBalanceView extends StatelessWidget {
                       FittedBox(
                         fit: BoxFit.contain,
                         child: Text(
-                          name,
+                          name.length > 20
+                              ? ' ${name.substring(0, 15)}... '
+                              : name,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                              color: AppColors.textColor,
+                              //color: AppColors.textColor,
                               fontSize: Dimensions.font14,
                               fontWeight: FontWeight.bold),
                         ),
@@ -108,7 +93,7 @@ class TokenBalanceView extends StatelessWidget {
                             Text(
                               '\$ ${price!.toStringAsFixed(2)}',
                               style: TextStyle(
-                                color: AppColors.textColor,
+                                //color: AppColors.textColor,
                                 fontSize: Dimensions.font14,
                               ),
                             ),
@@ -117,10 +102,8 @@ class TokenBalanceView extends StatelessWidget {
                             ),
                             Text(
                               changePercentage! < 0
-                                  ? changePercentage!.toStringAsFixed(2) + '%'
-                                  : '+' +
-                                      changePercentage!.toStringAsFixed(2) +
-                                      '%',
+                                  ? '${changePercentage!.toStringAsFixed(2)}%'
+                                  : '+${changePercentage!.toStringAsFixed(2)}%',
                               textAlign: TextAlign.end,
                               style: TextStyle(
                                   color: changePercentage! < 0
@@ -149,14 +132,16 @@ class TokenBalanceView extends StatelessWidget {
                             Text(
                               '${amount.toString()} ',
                               style: TextStyle(
-                                color: AppColors.textColor,
+                                //color: AppColors.textColor,
                                 fontSize: Dimensions.font14,
                               ),
                             ),
                             Text(
-                              '${symbol.toUpperCase()} ',
+                              symbol.length > 15
+                                  ? ' ${symbol.substring(0, 15)..toUpperCase()}... '
+                                  : symbol.toUpperCase(),
                               style: TextStyle(
-                                color: AppColors.textColor,
+                                //color: AppColors.textColor,
                                 fontSize: Dimensions.font14,
                               ),
                             ),
@@ -169,7 +154,7 @@ class TokenBalanceView extends StatelessWidget {
                       Text(
                         '\$ ${total.toStringAsFixed(5)}',
                         style: TextStyle(
-                          color: AppColors.textColor,
+                          //color: AppColors.textColor,
                           fontSize: Dimensions.font14,
                         ),
                       ),

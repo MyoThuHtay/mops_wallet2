@@ -2,6 +2,9 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mops_wallet/model/wallet_model.dart';
+import 'package:mops_wallet/pages/wallet/finance.dart';
+import 'package:mops_wallet/pages/wallet/nft.dart';
 import 'package:mops_wallet/pages/wallet/search_coin.dart';
 import 'package:mops_wallet/pages/wallet/tokens.dart';
 import 'package:mops_wallet/utils/colors.dart';
@@ -10,8 +13,8 @@ import 'package:mops_wallet/utils/dimensions.dart';
 import 'package:get/get.dart';
 
 class Wallet extends StatefulWidget {
-  const Wallet({Key? key}) : super(key: key);
-
+  const Wallet({Key? key, required this.wallet}) : super(key: key);
+  final Wallets wallet;
   @override
   State<Wallet> createState() => _WalletState();
 }
@@ -21,12 +24,13 @@ class _WalletState extends State<Wallet> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-
+    final wallet = widget.wallet;
     return DefaultTabController(
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: AppColors.appBarColor,
+          backgroundColor:
+              Theme.of(context).appBarTheme.backgroundColor!.withOpacity(0.5),
           elevation: 0,
           leading: IconButton(
             onPressed: () {},
@@ -40,36 +44,36 @@ class _WalletState extends State<Wallet> {
             width: width,
             height: height / 20,
             decoration: BoxDecoration(
-                border:
-                    Border.all(width: 2, color: Colors.black26),
+                border: Border.all(width: 2, color: Colors.black26),
                 shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.circular(Dimensions.radius20/2),
+                borderRadius: BorderRadius.circular(Dimensions.radius20 / 2),
                 color: Colors.black12),
             child: TabBar(
               indicatorSize: TabBarIndicatorSize.tab,
-              labelColor: AppColors.textColor,
+              labelColor: Theme.of(context).focusColor,
               unselectedLabelColor: Colors.grey,
               indicator: BoxDecoration(
                 shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.circular(Dimensions.radius20/2),
-                color: AppColors.appBarColor,
+                borderRadius: BorderRadius.circular(Dimensions.radius20 / 2),
+                color: Theme.of(context).appBarTheme.backgroundColor,
               ),
               tabs: [
                 Tab(
-                    child: SizedBox(
-                  width: width,
-                  child: Text(
-                    'Tokens',
-                    style: TextStyle(fontSize: Dimensions.font20/2),
-                    textAlign: TextAlign.center,
+                  child: SizedBox(
+                    width: width,
+                    child: Text(
+                      'Tokens',
+                      style: TextStyle(fontSize: Dimensions.font20 / 2),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
-                ),),
+                ),
                 Tab(
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: Text(
                       'Finance',
-                      style: TextStyle(fontSize: Dimensions.font20/2),
+                      style: TextStyle(fontSize: Dimensions.font20 / 2),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -79,7 +83,7 @@ class _WalletState extends State<Wallet> {
                     width: MediaQuery.of(context).size.width,
                     child: Text(
                       'NFT',
-                      style: TextStyle(fontSize: Dimensions.font20/2),
+                      style: TextStyle(fontSize: Dimensions.font20 / 2),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -99,24 +103,91 @@ class _WalletState extends State<Wallet> {
                 height: Dimensions.iconSize24,
               ),
             ),
-             SizedBox(
+            SizedBox(
               width: Dimensions.width20,
             )
           ],
         ),
         body: TabBarView(
           children: [
-            Tokens(),
-            Text(
-              'B',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black, fontSize: Dimensions.font20),
+            Tokens(
+              wallet: Wallets(
+                id: wallet.id,
+                phrase: wallet.phrase.toString(),
+                private: wallet.private.toString(),
+                btc: wallet.btc.toString(),
+                eth: wallet.eth.toString(),
+                etc: wallet.etc.toString(),
+                vet: wallet.vet.toString(),
+                via: wallet.via.toString(),
+                go: wallet.go.toString(),
+                grs: wallet.grs.toString(),
+                ltc: wallet.ltc.toString(),
+                dgb: wallet.dgb.toString(),
+                poa: wallet.poa.toString(),
+                aion: wallet.aion.toString(),
+                theta: wallet.theta.toString(),
+                tomo: wallet.tomo.toString(),
+                tt: wallet.tt.toString(),
+                clo: wallet.clo.toString(),
+                wan: wallet.wan.toString(),
+                xpud: wallet.xpud.toString(),
+                wallets: wallet.wallets,
+                isCreated: wallet.isCreated,
+              ),
             ),
-            Text(
-              'C',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black, fontSize: Dimensions.font20),
+            Finance(
+              wallet: Wallets(
+                id: wallet.id,
+                phrase: wallet.phrase.toString(),
+                private: wallet.private.toString(),
+                btc: wallet.btc.toString(),
+                eth: wallet.eth.toString(),
+                etc: wallet.etc.toString(),
+                vet: wallet.vet.toString(),
+                via: wallet.via.toString(),
+                go: wallet.go.toString(),
+                grs: wallet.grs.toString(),
+                ltc: wallet.ltc.toString(),
+                dgb: wallet.dgb.toString(),
+                poa: wallet.poa.toString(),
+                aion: wallet.aion.toString(),
+                theta: wallet.theta.toString(),
+                tomo: wallet.tomo.toString(),
+                tt: wallet.tt.toString(),
+                clo: wallet.clo.toString(),
+                wan: wallet.wan.toString(),
+                xpud: wallet.xpud.toString(),
+                wallets: wallet.wallets,
+                isCreated: wallet.isCreated,
+              ),
             ),
+            NFT(
+              wallet: Wallets(
+                id: wallet.id,
+                phrase: wallet.phrase.toString(),
+                private: wallet.private.toString(),
+                btc: wallet.btc.toString(),
+                eth: wallet.eth.toString(),
+                etc: wallet.etc.toString(),
+                vet: wallet.vet.toString(),
+                via: wallet.via.toString(),
+                go: wallet.go.toString(),
+                grs: wallet.grs.toString(),
+                ltc: wallet.ltc.toString(),
+                dgb: wallet.dgb.toString(),
+                poa: wallet.poa.toString(),
+                aion: wallet.aion.toString(),
+                theta: wallet.theta.toString(),
+                tomo: wallet.tomo.toString(),
+                tt: wallet.tt.toString(),
+                clo: wallet.clo.toString(),
+                wan: wallet.wan.toString(),
+                xpud: wallet.xpud.toString(),
+                wallets: wallet.wallets,
+                isCreated: wallet.isCreated,
+              ),
+            )
           ],
         ),
       ),

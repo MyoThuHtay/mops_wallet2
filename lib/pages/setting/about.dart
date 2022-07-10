@@ -57,10 +57,10 @@ class About extends StatelessWidget {
               color: Colors.black12,
               thickness: .5,
             ),
-            ListTile(
+            const ListTile(
               tileColor: AppColors.backgroundColor,
-              title: const Text('Version'),
-              subtitle: Text(Constants.versionName.toString()+'.'+Constants.version.toString()),
+              title: Text('Version'),
+              subtitle: Text('${Constants.versionName}.${Constants.version}'),
             ),
             const Divider(
               height: .5,

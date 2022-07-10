@@ -11,16 +11,19 @@ import 'package:mops_wallet/utils/dimensions.dart';
 import 'package:mops_wallet/utils/text_and_icon.dart';
 
 class TokenDetail extends StatefulWidget {
-  final double amount;
+  final String type;
+  final dynamic amount;
   final String? imageUrl;
   final String name;
-  final num price;
+  final dynamic price;
   final double changePercentage;
   final String symbol;
-  final double total;
+  final dynamic total;
   final String tokenAddress;
+
   const TokenDetail(
       {Key? key,
+      required this.type,
       required this.amount,
       required this.imageUrl,
       required this.name,
@@ -68,7 +71,7 @@ class _TokenDetailState extends State<TokenDetail> {
             )
           ],
         ),
-        backgroundColor: AppColors.backgroundColor,
+        backgroundColor: Theme.of(context).primaryColor,
         body: GetBuilder<WalletController>(
           builder: (controller) {
             return ListView.builder(
@@ -76,7 +79,7 @@ class _TokenDetailState extends State<TokenDetail> {
                 if (index == 0) {
                   return ListTile(
                     //elevation: 0,
-                    tileColor: AppColors.backgroundColor,
+                    tileColor: Theme.of(context).primaryColor,
                     title: Column(
                       children: [
                         SizedBox(
@@ -88,8 +91,10 @@ class _TokenDetailState extends State<TokenDetail> {
                               ),
                               SizedBox(
                                 width: MediaQuery.of(context).size.width / 5,
-                                child: const Text(
-                                  'BEP 20',
+                                child: Text(
+                                  widget.type,
+                                  style:
+                                      TextStyle(color: AppColors.tittleColor),
                                 ),
                               ),
                               SizedBox(
@@ -104,13 +109,8 @@ class _TokenDetailState extends State<TokenDetail> {
                               ),
                               Text(
                                 widget.changePercentage < 0
-                                    ? widget.changePercentage
-                                            .toStringAsFixed(2) +
-                                        '%'
-                                    : '+' +
-                                        widget.changePercentage
-                                            .toStringAsFixed(2) +
-                                        '%',
+                                    ? '${widget.changePercentage.toStringAsFixed(2)}%'
+                                    : '+${widget.changePercentage.toStringAsFixed(2)}%',
                                 textAlign: TextAlign.end,
                                 style: TextStyle(
                                     color: widget.changePercentage < 0
@@ -158,7 +158,7 @@ class _TokenDetailState extends State<TokenDetail> {
                         ),
                         Center(
                           child: Text(
-                            '${widget.amount} ${widget.symbol.toUpperCase()}',
+                            '${widget.amount} ${widget.symbol.length > 15 ? ' ${widget.symbol.substring(0, 15)..toUpperCase()}... ' : widget.symbol.toUpperCase()}',
                             style: const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
@@ -238,7 +238,7 @@ class _TokenDetailState extends State<TokenDetail> {
                       color: Colors.black38,
                     ),
                     ListTile(
-                      tileColor: AppColors.backgroundColor,
+                      tileColor: Theme.of(context).primaryColor,
                       leading: Icon(
                         CupertinoIcons.arrow_down_to_line,
                         size: Dimensions.iconSize45,
@@ -246,7 +246,7 @@ class _TokenDetailState extends State<TokenDetail> {
                       title: const Text('Transfer'),
                       subtitle: const Text('From: '),
                       trailing: Text(
-                          '${widget.amount} ${widget.symbol.toUpperCase()}'),
+                          '${widget.amount} ${widget.symbol.length > 15 ? ' ${widget.symbol.substring(0, 5)..toUpperCase()}... ' : widget.symbol.toUpperCase()}'),
                     ),
                     // const Divider(
                     //   thickness: .5,

@@ -8,12 +8,18 @@ class SearchCoin extends StatefulWidget {
   const SearchCoin({Key? key}) : super(key: key);
 
   @override
-  _SearchCoinState createState() => _SearchCoinState();
+  SearchCoinState createState() => SearchCoinState();
 }
 
-class _SearchCoinState extends State<SearchCoin> {
+class SearchCoinState extends State<SearchCoin> {
   final myController = TextEditingController();
   bool isShow = true;
+
+  @override
+  void initState() {
+    Get.find<SearchController>().getSearch('coin');
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -23,11 +29,11 @@ class _SearchCoinState extends State<SearchCoin> {
 
   @override
   Widget build(BuildContext context) {
-    //final themeProvider = Provider.of<ThemeProvider>(context);
+    //Get.find<SearchController>().getSearch('coin');
     return GetBuilder<SearchController>(builder: (coin) {
       return Scaffold(
         appBar: AppBar(
-          backgroundColor: AppColors.appBarColor,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           title: SizedBox(
             width: MediaQuery.of(context).size.width,
             height: 45,
@@ -56,12 +62,12 @@ class _SearchCoinState extends State<SearchCoin> {
                       style: TextStyle(
                           color: Theme.of(context).iconTheme.color,
                           fontSize: 20),
-                    )),
+                    ),),
               ),
             ),
           ),
         ),
-        backgroundColor: AppColors.backgroundColor,
+        backgroundColor: Theme.of(context).primaryColor,
         body: ListView.builder(
           scrollDirection: Axis.vertical,
           itemCount: coin.searchList.length + 1,
@@ -70,7 +76,7 @@ class _SearchCoinState extends State<SearchCoin> {
               return Column(
                 children: [
                   ListTile(
-                    tileColor: AppColors.backgroundColor,
+                    tileColor: Theme.of(context).primaryColor,
                     leading: const Icon(
                       Icons.add_circle_outline_sharp,
                       size: 40,
@@ -89,9 +95,12 @@ class _SearchCoinState extends State<SearchCoin> {
               );
             }
             index -= 1;
+            String name = coin.searchList[index].coins![index].name!;
+            String symbol = coin.searchList[index].coins![index].symbol!;
+            String logo = coin.searchList[index].coins![index].large!;
             return ListTile(
               onTap: () {},
-              tileColor: AppColors.backgroundColor,
+              tileColor: Theme.of(context).primaryColor,
               leading: Container(
                 width: 40,
                 height: 40,
@@ -100,21 +109,16 @@ class _SearchCoinState extends State<SearchCoin> {
                   borderRadius: BorderRadius.circular(100),
                 ),
                 child: Image.network(
-                  coin.searchList[index].coins![index].large!,
+                  logo,
                   fit: BoxFit.contain,
-                  // width: 40,
-                  // height: 40,
                 ),
               ),
               title: Row(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                // mainAxisSize: MainAxisSize.max,
                 children: [
                   FittedBox(
                     fit: BoxFit.contain,
                     child: Text(
-                      coin.searchList[index].coins![index].name!,
-                      style: const TextStyle(color: AppColors.textColor),
+                      name.length > 20 ? '${name.substring(0, 15)}...' : name,
                     ),
                   ),
                   const SizedBox(
@@ -123,21 +127,22 @@ class _SearchCoinState extends State<SearchCoin> {
                   FittedBox(
                     fit: BoxFit.contain,
                     child: Text(
-                      coin.searchList[index].coins![index].symbol!,
+                      symbol.length > 15
+                          ? ' ${symbol.substring(0, 15)..toUpperCase()}... '
+                          : symbol.toUpperCase(),
                       style: const TextStyle(color: AppColors.tittleColor),
                     ),
                   ),
                 ],
               ),
-              //subtitle: Text(coin.searchList[index].coins![index].symbol!),
               trailing: Switch.adaptive(
                 value: isShow,
                 activeColor: AppColors.iconColor2,
-                onChanged: (_value) {
+                onChanged: (value) {
                   setState(() {
-                    isShow = _value;
+                    isShow = value;
                     if (kDebugMode) {
-                      print(_value);
+                      print(value);
                     }
                   });
                 },

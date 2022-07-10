@@ -2,24 +2,22 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 class PriceModel {
-  NativePrice? nativePrice;
-  var usdPrice;
-  String? exchangeAddress;
-  String? exchangeName;
+  //NativePrice? nativePrice;
+  dynamic usdPrice;
+  // String? exchangeAddress;
+  // String? exchangeName;
 
   PriceModel(
-      {this.nativePrice,
-      this.usdPrice = 0,
-      this.exchangeAddress,
-      this.exchangeName});
+      {
+      this.usdPrice,
+      // this.exchangeAddress,
+      // this.exchangeName
+      });
 
   PriceModel.fromJson(Map<String, dynamic> json) {
-    nativePrice = json['nativePrice'] != null
-        ? NativePrice.fromJson(json['nativePrice'])
-        : null;
     usdPrice = json['usdPrice'] ?? 0.0;
-    exchangeAddress = json['exchangeAddress'] ?? '';
-    exchangeName = json['exchangeName'] ?? '';
+    // exchangeAddress = json['exchangeAddress'] ?? '';
+    // exchangeName = json['exchangeName'] ?? '';
   }
 }
 

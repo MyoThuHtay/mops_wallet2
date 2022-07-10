@@ -1,4 +1,4 @@
-package com.wallet.mops.mops_wallet
+package com.wallet.mops_wallet
 
 import io.flutter.embedding.android.FlutterActivity
 

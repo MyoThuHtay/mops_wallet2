@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.wallet.mops.mops_wallet">
+    package="com.wallet.mops_wallet">
    <application
-        android:label="mops_wallet"
+        android:label="MOPS WALLET"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -30,6 +30,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-       <!-- <uses-permission android:name="android.permission.INTERNET"/>-->
+       <!-- <uses-permission android:name="android.permission.INTERNET"/> -->
     </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

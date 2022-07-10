@@ -21,8 +21,8 @@ class WalletDefaultView extends StatelessWidget {
     final double amount =0;
   final String imageUrl ="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579";
   final String name ="Bitcoin";
-  final num? price= 20712;
-  final double? changePercentage = -2.09509;
+  final num price= 20712;
+  final double changePercentage = -2.09509;
   final String symbol ="btc";
   final double total = 0;
   final tokenAddress = "0xe887232387645c90601935fc028d0589d97942eb";
@@ -36,11 +36,12 @@ class WalletDefaultView extends StatelessWidget {
                     //print(coin.coinList[index].tokenAddress);
                     Get.to(
                       () => TokenDetail(
+                        type: 'Coin',
                         amount: amount,
                         imageUrl: imageUrl,
                         name: name,
-                        price: price!,
-                        changePercentage: changePercentage!,
+                        price: price,
+                        changePercentage: changePercentage,
                         symbol: symbol,
                         total: total,
                         tokenAddress: tokenAddress,
@@ -92,7 +93,7 @@ class WalletDefaultView extends StatelessWidget {
                                 FittedBox(
                                   fit: BoxFit.contain,
                                   child: Text(
-                                    '\$ ${price!.toStringAsFixed(2)}',
+                                    '\$ ${price.toStringAsFixed(2)}',
                                     style: TextStyle(
                                       color: AppColors.textColor,
                                       fontSize: Dimensions.font14,
@@ -103,12 +104,9 @@ class WalletDefaultView extends StatelessWidget {
                                   width: Dimensions.width10,
                                 ),
                                 Text(
-                                  changePercentage! < 0
-                                      ? changePercentage.toStringAsFixed(2) +
-                                          '%'
-                                      : '+' +
-                                          changePercentage.toStringAsFixed(2) +
-                                          '%',
+                                  changePercentage< 0
+                                      ? '${changePercentage.toStringAsFixed(2)}%'
+                                      : '+${changePercentage.toStringAsFixed(2)}%',
                                   textAlign: TextAlign.end,
                                   style: TextStyle(
                                       color: changePercentage< 0

@@ -31,7 +31,7 @@ class TokenModel {
         name: json["name"],
         symbol: json["symbol"],
         decimals: json["decimals"],
-        balance: json["balance"],
+        balance: json["balance"] ?? '',
       );
 
   Map<String, dynamic> toJson() => {

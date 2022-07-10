@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mops_wallet/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DappView extends StatelessWidget {
@@ -24,10 +23,10 @@ class DappView extends StatelessWidget {
         leading: CircleAvatar(
           child: Image.network(image),
         ),
-        tileColor: AppColors.backgroundColor,
+        tileColor: Theme.of(context).primaryColor,
         title: Text(name),
         subtitle: Text(description!.length > 50
-            ? description!.substring(0, 50) + "..."
+            ? "${description!.substring(0, 50)}..."
             : description!),
         onTap: () async {
           //var uri = url;

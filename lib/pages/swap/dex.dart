@@ -8,11 +8,11 @@ class Dex extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: false,
-        backgroundColor: AppColors.appBarColor,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         title: const Text('DEX'),
       ),
       body: SizedBox(
@@ -23,6 +23,7 @@ class Dex extends StatelessWidget {
             SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Card(
+                color: Theme.of(context).primaryColor,
                 child: Column(
                   children: [
                     SizedBox(
