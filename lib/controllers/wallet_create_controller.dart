@@ -41,6 +41,7 @@ class WalletCreateController extends GetxController {
       mnemonic,
       xpud;
   late List<String> addresses = [];
+  late List<String> addresses2 = [];
   late Wallets _createWallet;
   Wallets get createwallet => _createWallet;
   late Wallets _wallet;
@@ -72,45 +73,46 @@ class WalletCreateController extends GetxController {
     id = lastId + 1;
     private = await service.getPrivateKey(mnemonic);
     xpud = await service.getXprvKey(mnemonic);
-    btc = await service.getbtcAddress(mnemonic);
+    //btc = await service.getbtcAddress(mnemonic);
     addresses = await service.getethAddress(mnemonic);
-    ltc = await service.getltcAddress(mnemonic);
-    via = await service.getviaAddress(mnemonic);
-    grs = await service.getgrsAddress(mnemonic);
-    bch = await service.getbchAddress(mnemonic);
-    atom = await service.getatomAddress(mnemonic);
-    xrp = await service.getxrpAddress(mnemonic);
-    bnb = await service.getbnbAddress(mnemonic);
-    dot = await service.getdotAddress(mnemonic);
-    xtz = await service.getxtzAddress(mnemonic);
-    xlm = await service.getxlmAddress(mnemonic);
-    trx = await service.gettrxAddress(mnemonic);
-    zec = await service.getzecAddress(mnemonic);
-    fil = await service.getfilAddress(mnemonic);
-    dgb = await service.getdgbAddress(mnemonic);
-    thor = await service.getthorAddress(mnemonic);
-    nano = await service.getnanoAddress(mnemonic);
+    addresses2 = await service.getAddress(mnemonic);
+    // via = await service.getviaAddress(mnemonic);
+    // grs = await service.getgrsAddress(mnemonic);
+    // bch = await service.getbchAddress(mnemonic);
+    // atom = await service.getatomAddress(mnemonic);
+    // xrp = await service.getxrpAddress(mnemonic);
+    // bnb = await service.getbnbAddress(mnemonic);
+    // dot = await service.getdotAddress(mnemonic);
+    // xtz = await service.getxtzAddress(mnemonic);
+    // xlm = await service.getxlmAddress(mnemonic);
+    // trx = await service.gettrxAddress(mnemonic);
+    // zec = await service.getzecAddress(mnemonic);
+    // fil = await service.getfilAddress(mnemonic);
+    // dgb = await service.getdgbAddress(mnemonic);
+    // thor = await service.getthorAddress(mnemonic);
+    // nano = await service.getnanoAddress(mnemonic);
     _isCreated = true;
     _createWallet = Wallets(
       id: id,
       phrase: mnemonic.toString(),
       private: private.toString(),
-      btc: btc.toString(),
+      //btc: btc.toString(),
       eth: addresses[0].toString(),
       etc: addresses[1].toString(),
-      vet: addresses[5].toString(),
-      via: via.toString(),
-      go: addresses[9].toString(),
-      grs: grs.toString(),
-      ltc: ltc.toString(),
-      dgb: dgb.toString(),
       poa: addresses[2].toString(),
       aion: addresses[3].toString(),
       theta: addresses[4].toString(),
+      vet: addresses[5].toString(),
+      clo: addresses[6].toString(),
       tomo: addresses[7].toString(),
       tt: addresses[8].toString(),
-      clo: addresses[6].toString(),
+      go: addresses[9].toString(),
       wan: addresses[10].toString(),
+      btc: addresses2[0].toString(),
+      ltc: addresses2[1].toString(),
+      via: addresses2[2].toString(),
+      grs: addresses2[3].toString(),
+      dgb: addresses2[11].toString(),
       xpud: xpud.toString(),
       wallets: name,
       isCreated: _isCreated,

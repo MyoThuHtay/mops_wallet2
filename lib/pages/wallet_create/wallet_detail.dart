@@ -89,7 +89,8 @@ class WalletDetailState extends State<WalletDetail> {
                       // Creates border
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.only(
+                          left: 10.0, top: 20, bottom: 10),
                       child: Text(wallet!.wallets),
                     ),
                   ),
@@ -122,8 +123,8 @@ class WalletDetailState extends State<WalletDetail> {
                         child: Text(
                           wallet!.eth.toString(),
                           style: const TextStyle(
-                              color: AppColors.mainColor,
-                              backgroundColor: Colors.grey),
+                            color: AppColors.mainColor,
+                          ),
                         ),
                       ),
                     ),
