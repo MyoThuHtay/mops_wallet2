@@ -150,9 +150,11 @@ class _SplashScreenState extends State<SplashScreen> {
             const SizedBox(
               height: 20,
             ),
-            const CircularProgressIndicator(
-              color: AppColors.mainColor,
-            )
+            Image.asset(
+              "assets/images/loadingText.png",
+              width: 200,
+              height: 200,
+            ),
           ],
         ),
       ),
