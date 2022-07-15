@@ -22,7 +22,7 @@ jobs:
           flutter-version: '3.0.4'
        
       - run: flutter pub get
-      - run: flutter test 
+      
       - run: flutter build apk --debug --split-per-abi
       - name: Push to Release 
         uses: ncipoLlo/release-action@v1
