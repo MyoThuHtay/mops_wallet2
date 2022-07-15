@@ -1,3 +1,6 @@
+import 'dart:isolate';
+
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:mops_wallet/model/wallet_model.dart';
 import 'package:mops_wallet/repository/wallet_database_repo.dart';
@@ -5,10 +8,6 @@ import 'package:mops_wallet/utils/wallet_creation.dart';
 import 'package:bip39/bip39.dart' as bip39;
 
 class WalletCreateController extends GetxController {
-  final service = Get.find<WalletAddressService>();
-  int? id;
-  bool _isCreated = false;
-  bool get isCreated => _isCreated;
   late String private,
       btc,
       eth,
@@ -48,6 +47,8 @@ class WalletCreateController extends GetxController {
   Wallets get wallet => _wallet;
   late int lastId;
 
+  int? get id => lastId;
+
   String generateMnemonic() {
     var mnemonic = bip39.generateMnemonic();
     return mnemonic;
@@ -58,45 +59,31 @@ class WalletCreateController extends GetxController {
     return _wallet;
   }
 
-  Future getWalletId() async {
+  static Future getWalletId() async {
+    final int lastId;
     final wallets = await WalletDatabase.instance.readAllWallets();
     if (wallets.isNotEmpty) {
       lastId = wallets.last.id ?? 1;
     } else {
-      lastId = 0;
+      lastId = 1;
     }
     return lastId;
   }
 
-  Future<Wallets> createWallet(name, mnemonic) async {
-    await getWalletId();
-    id = lastId + 1;
-    private = await service.getPrivateKey(mnemonic);
-    xpud = await service.getXprvKey(mnemonic);
-    //btc = await service.getbtcAddress(mnemonic);
-    addresses = await service.getethAddress(mnemonic);
-    addresses2 = await service.getAddress(mnemonic);
-    // via = await service.getviaAddress(mnemonic);
-    // grs = await service.getgrsAddress(mnemonic);
-    // bch = await service.getbchAddress(mnemonic);
-    // atom = await service.getatomAddress(mnemonic);
-    // xrp = await service.getxrpAddress(mnemonic);
-    // bnb = await service.getbnbAddress(mnemonic);
-    // dot = await service.getdotAddress(mnemonic);
-    // xtz = await service.getxtzAddress(mnemonic);
-    // xlm = await service.getxlmAddress(mnemonic);
-    // trx = await service.gettrxAddress(mnemonic);
-    // zec = await service.getzecAddress(mnemonic);
-    // fil = await service.getfilAddress(mnemonic);
-    // dgb = await service.getdgbAddress(mnemonic);
-    // thor = await service.getthorAddress(mnemonic);
-    // nano = await service.getnanoAddress(mnemonic);
-    _isCreated = true;
-    _createWallet = Wallets(
+  static Future<Wallets> createWallet(String name, String mnemonic) async {
+    WalletCreateController controller = WalletCreateController();
+    controller.lastId = await getWalletId();
+    final id = controller.lastId + 1;
+    final service = Get.find<WalletAddressService>();
+    final private = await compute(service.getPrivateKey,mnemonic);
+    final xpud = await compute(service.getXprvKey,mnemonic);
+    final addresses = await compute(service.getethAddress,mnemonic);
+    final addresses2 = await compute(service.getAddress,mnemonic);
+    const isCreated = true;
+    final createWallet = Wallets(
       id: id,
       phrase: mnemonic.toString(),
       private: private.toString(),
-      //btc: btc.toString(),
       eth: addresses[0].toString(),
       etc: addresses[1].toString(),
       poa: addresses[2].toString(),
@@ -112,12 +99,22 @@ class WalletCreateController extends GetxController {
       ltc: addresses2[1].toString(),
       via: addresses2[2].toString(),
       grs: addresses2[3].toString(),
-      dgb: addresses2[11].toString(),
+      dgb: addresses2[4].toString(),
       xpud: xpud.toString(),
       wallets: name,
-      isCreated: _isCreated,
+      isCreated: isCreated,
     );
-    await WalletDatabase.instance.create(_createWallet);
-    return _createWallet;
+    await WalletDatabase.instance.create(createWallet);
+    return createWallet;
   }
+}
+
+class WalletCreate {
+  final String mnemonic;
+  SendPort sendPort;
+  String? name;
+
+  String? mne;
+
+  WalletCreate(this.mnemonic, this.sendPort, [this.name, this.mne]);
 }

@@ -4,13 +4,20 @@ import 'package:bip39/bip39.dart' as bip39;
 import 'package:bip32/bip32.dart' as bip32;
 import 'package:dart_bip32_bip44/dart_bip32_bip44.dart';
 import 'package:ed25519_hd_key/ed25519_hd_key.dart';
-import 'package:get/get.dart';
 import 'package:hex/hex.dart';
 import 'package:web3dart/web3dart.dart';
 import 'package:coinslib/coinslib.dart';
 import 'package:eip55/eip55.dart';
 
-class WalletAddressService extends GetxService {
+abstract class WalletService {
+  Future<String> getPrivateKey(String mnemonic);
+  Future<String> getXprvKey(String mnemonic);
+  Future<List<String>> getethAddress(String mnemonic);
+  Future<List<String>> getAddress(String mnemonic);
+}
+
+class WalletAddressService implements WalletService {
+  @override
   Future<String> getPrivateKey(String mnemonic) async {
     final seed = bip39.mnemonicToSeed(mnemonic);
     final master = await ED25519_HD_KEY.getMasterKeyFromSeed(seed);
@@ -19,6 +26,7 @@ class WalletAddressService extends GetxService {
     return privateKey;
   }
 
+  @override
   Future<String> getXprvKey(String mnemonic) async {
     final seed = bip39.mnemonicToSeed(mnemonic);
     final node = bip32.BIP32.fromSeed(seed);
@@ -39,7 +47,7 @@ class WalletAddressService extends GetxService {
 
   //   return address!;
   // }
-
+  @override
   Future<List<String>> getethAddress(String mnemonic) async {
     final List<String> addresses = [];
     final path = [
@@ -119,7 +127,7 @@ class WalletAddressService extends GetxService {
   ];
 
   List<String> addressList = [];
-
+  @override
   Future<List<String>> getAddress(String mnemonic) async {
     final valid = bip39.validateMnemonic(mnemonic);
     if (valid != true) throw Exception('No Valid mnemonic');
@@ -136,13 +144,13 @@ class WalletAddressService extends GetxService {
       final root = bip32.BIP32.fromSeed(seed);
 
       final key = root.derivePath(derivePath[i]);
-      print(key);
+      
       final address =
           P2WPKH(data: PaymentData(pubkey: key.publicKey), network: network)
               .data
               .address;
       addressList.add(address!);
-      print(addressList);
+      
     }
     return addressList;
   }

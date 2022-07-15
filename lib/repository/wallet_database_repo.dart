@@ -1,11 +1,10 @@
 // ignore_for_file: depend_on_referenced_packages
 
-import 'package:get/get.dart';
 import 'package:mops_wallet/model/wallet_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart' as p;
 
-class WalletDatabase extends GetxService{
+class WalletDatabase {
   static final WalletDatabase instance = WalletDatabase._init();
 
   static Database? _database;

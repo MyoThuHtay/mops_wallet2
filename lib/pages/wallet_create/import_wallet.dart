@@ -5,8 +5,6 @@ import 'package:mops_wallet/controllers/wallet_create_controller.dart';
 import 'package:mops_wallet/model/wallet_model.dart';
 import 'package:mops_wallet/pages/home.dart';
 import 'package:mops_wallet/pages/wallet_create/loading.dart';
-import 'package:mops_wallet/utils/colors.dart';
-import 'package:mops_wallet/utils/dimensions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ImportWallet extends StatefulWidget {
@@ -26,22 +24,6 @@ class ImportWalletState extends State<ImportWallet> {
       onPressed: () {},
     ),
   );
-  final snackBar1 = SnackBar(
-    content: SizedBox(
-      width: Dimensions.screenWidth / 3,
-      height: Dimensions.screenHeight / 3,
-      child: Card(
-        color: AppColors.mainBlackColor.withOpacity(0.5),
-        child: Column(children: const [
-          CircularProgressIndicator(
-            color: AppColors.mainColor,
-          ),
-          Text('Loading...'),
-        ]),
-      ),
-    ),
-    behavior: SnackBarBehavior.floating,
-  );
 
   @override
   void dispose() {
@@ -54,15 +36,18 @@ class ImportWalletState extends State<ImportWallet> {
 
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => WalletController(walletRepo: Get.find(),apiClient: Get.find()));
+    Get.lazyPut(
+        () => WalletController(walletRepo: Get.find(), apiClient: Get.find()));
 
     return GetBuilder<WalletCreateController>(builder: (service) {
       createWallet(String mne) async {
+        final walletid = await SharedPreferences.getInstance();
         const name = 'Multi-Coin Wallet';
         final mnemonic = editor.text;
-        final walletid = await SharedPreferences.getInstance();
-        wallet = await service.createWallet(name, mnemonic);
-        walletid.setInt('WalletId', service.createwallet.id!);
+        wallet = await WalletCreateController.createWallet(name, mnemonic);
+        setState(() {
+          walletid.setInt('WalletId', wallet.id!);
+        });
       }
 
       return Scaffold(

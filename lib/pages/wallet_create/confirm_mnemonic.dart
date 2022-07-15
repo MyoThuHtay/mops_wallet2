@@ -18,31 +18,33 @@ class ComfirmMnemonic extends StatefulWidget {
   ComfirmMnemonicState createState() => ComfirmMnemonicState();
 }
 
-TextEditingController editor = TextEditingController();
-
 class ComfirmMnemonicState extends State<ComfirmMnemonic> {
+  bool isLoading = true;
+  TextEditingController editor = TextEditingController();
+  late Wallets wallet;
+  Future createWallet(String mne) async {
+    final walletid = await SharedPreferences.getInstance();
+    String wName = widget.name;
+    String mnemonic = widget.mne;
+    // late Wallets wallet;
+    if (mne == mnemonic) {
+      wallet = await WalletCreateController.createWallet(wName, mnemonic);
+      setState(() {
+        walletid.setInt('WalletId', wallet.id!);
+      });
+    }
+    return wallet;
+  }
+
   @override
   void dispose() {
     super.dispose();
     editor.text = '';
   }
 
-  late Wallets wallet;
-  bool isLoading = true;
-
   @override
   Widget build(BuildContext context) {
     return GetBuilder<WalletCreateController>(builder: (service) {
-      createWallet(String mne) async {
-        if (mne == widget.mne) {
-          final name = widget.name;
-          final mnemonic = widget.mne;
-          final walletid = await SharedPreferences.getInstance();
-          wallet = await service.createWallet(name, mnemonic);
-          walletid.setInt('WalletId', wallet.id!);
-        }
-      }
-
       return Scaffold(
           backgroundColor: Theme.of(context).primaryColor,
           body: isLoading

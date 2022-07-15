@@ -35,13 +35,13 @@ class _SplashScreenState extends State<SplashScreen> {
       int? id = walletid.getInt('WalletId') ?? wallets?.first.id;
       walle = await Get.find<WalletCreateController>().getWallet(id!);
       Get.find<WalletController>().getCoin(walle?.eth);
-      startTimer();
+      startTimer(30);
       //Get.find<WalletController>().getBscTokenList(walle?.eth);
 
       isLoading = true;
     } else {
       isLoading = false;
-      startTimer();
+      startTimer(5);
     }
   }
 
@@ -50,8 +50,8 @@ class _SplashScreenState extends State<SplashScreen> {
     isLogging = user.getBool('isLogging') ?? false;
   }
 
-  startTimer() async {
-    var duration = const Duration(seconds: 30);
+  startTimer(int t) async {
+    var duration =  Duration(seconds: t);
 
     return Timer(duration, route);
   }
